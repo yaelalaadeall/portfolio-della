@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dcefed">
+  <title>Della Tri Wahyuningrum | Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --mint:#dcefed;--mint-deep:#a9d8d3;--pink:#f5b9cc;--pink-light:#fff0f1;
+      --cream:#fff8df;--lilac:#d9c8e9;--yellow:#f4e99a;--ink:#554b60;
+      --muted:#81768a;--white:#fffdf8;--line:#e9d9df;--shadow:0 18px 45px #a98da51c;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--mint);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .site-shell{max-width:1180px;margin:18px auto;padding:16px;background:#e9e6a9;border:2px solid #e6b9c7;border-radius:34px;box-shadow:0 20px 60px #7d8e8b22;position:relative}
+    .browser{background:var(--pink-light);border:2px solid #f0d1d8;border-radius:27px;overflow:hidden;position:relative}
+    .browser-bar{height:42px;background:#c7e6e1;display:flex;align-items:center;gap:8px;padding:0 18px;color:#8d8992;font-size:11px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#e99db5}.dot:nth-child(2){background:#f1d77f}.dot:nth-child(3){background:#9ccfc6}
+    .address{margin-left:10px;background:#fffaf5;border-radius:30px;padding:6px 18px;width:min(260px,45%);color:#a59ba3}
+    .bar-right{margin-left:auto}
+    .navbar{position:sticky;top:0;z-index:50;background:#fff0f1ed;backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:15px clamp(18px,5vw,55px);border-bottom:1px solid #efdce2}
+    .brand{font:700 19px Fredoka;color:#d77f9d;white-space:nowrap}.brand span{color:#8dc9c1}
+    .navlinks{display:flex;gap:clamp(12px,2.5vw,30px);align-items:center;font-size:12px;font-weight:700;color:#897d8a}
+    .navlinks a{transition:.25s}.navlinks a:hover{color:#d77f9d;transform:translateY(-2px)}
+    .menu-btn{display:none;border:0;background:#f6d5df;border-radius:12px;padding:8px 11px;color:#775f73}
+    .hero{min-height:590px;padding:70px clamp(24px,7vw,88px) 65px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;position:relative;isolation:isolate;background:linear-gradient(180deg,#fff0f1 0%,#fff5ee 72%,#e1f0ec 100%)}
+    .hero:before{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(135deg,transparent 25%,#dcefed 25% 50%,transparent 50% 75%,#dcefed 75%);background-size:90px 90px;opacity:.48;z-index:-1}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fffaf2;border:1px solid #f1d9df;border-radius:30px;padding:9px 15px;font-size:11px;letter-spacing:.08em;font-weight:800;color:#b77e99}
+    .eyebrow:before{content:"✦";color:#d6bd69}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font:700 clamp(42px,6.5vw,78px)/.98 "Playfair Display",serif;letter-spacing:-2px;margin:22px 0 14px;color:#d985a3}
+    .hero h1 span{display:block;color:#8bbfba;font-style:italic}
+    .hero-role{font:600 clamp(15px,2vw,19px) Fredoka;color:#8c7a94;margin-bottom:18px}
+    .hero-desc{max-width:530px;line-height:1.8;color:#817783;font-size:14px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:30px;padding:13px 20px;font-weight:800;font-size:12px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 12px 22px #a9809b2b}
+    .btn-primary{background:#e89db5;color:white}.btn-soft{background:#d8eee9;color:#6c9e99;border:1px solid #b7ddd6}
+    .hero-visual{min-height:390px;display:grid;place-items:center;position:relative}
+    .profile-frame{width:min(320px,75vw);aspect-ratio:1;border-radius:48% 52% 46% 54%;background:#f5e99e;border:12px solid #fff8df;box-shadow:0 18px 35px #a58c9c35;display:grid;place-items:center;position:relative;transform:rotate(4deg);animation:float 5s ease-in-out infinite}
+    .profile-frame:before{content:"";position:absolute;inset:13px;border:2px dashed #e5a8bd;border-radius:inherit}
+    .profile-frame img{width:83%;height:83%;object-fit:cover;border-radius:50%;position:relative;z-index:1}
+    .photo-placeholder{width:83%;height:83%;border-radius:50%;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#f8d6df,#c9e8e2);color:#997a92;font:600 17px Fredoka;padding:30px;position:relative;z-index:1}
+    .photo-placeholder small{font:500 11px "DM Sans";display:block;margin-top:8px}
+    .sticker{position:absolute;z-index:2;background:#fffaf0;border:2px solid #efd4dc;border-radius:18px;padding:11px 15px;font:600 13px Fredoka;box-shadow:var(--shadow);animation:float 4s ease-in-out infinite}
+    .sticker.one{top:10%;right:2%;transform:rotate(8deg)}.sticker.two{bottom:10%;left:0;animation-delay:-2s;transform:rotate(-8deg)}
+    .spark{position:absolute;color:#e7b7c7;font-size:25px;animation:twinkle 2.4s ease-in-out infinite}.spark.s1{top:8%;left:12%}.spark.s2{right:4%;bottom:15%;animation-delay:1s}
+    .section{padding:76px clamp(22px,6vw,72px);position:relative}
+    .section-title{text-align:center;margin-bottom:36px}
+    .section-title .kicker{font:700 11px Fredoka;letter-spacing:.18em;color:#b68ca8;text-transform:uppercase}
+    .section-title h2{font:700 clamp(34px,5vw,52px) Fredoka;margin:8px 0;color:#9c8ba7}
+    .section-title h2 .pink{color:#df91ac}.section-title p{font-size:13px;color:#8d8290}
+    .about{background:#e1f0ed}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:stretch}
+    .about-note{background:#fff8e5;border:2px solid #f0e3b5;border-radius:28px;padding:28px;display:flex;flex-direction:column;justify-content:center;min-height:260px;box-shadow:var(--shadow)}
+    .about-note .big-quote{font:700 58px Georgia;color:#e6a2b8;line-height:.7}
+    .about-note p{line-height:1.85;font-size:14px;margin:15px 0 0}
+    .detail-card{background:#fffafa;border:2px solid #f2dbe2;border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+    .detail-card h3{font:600 22px Fredoka;color:#d88ca8}
+    .detail-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .detail{background:#fff4f1;border-radius:15px;padding:13px}.detail small{display:block;color:#a69aa5;font-size:10px;margin-bottom:5px}.detail strong{font-size:12px}
+    .apps{background:#fff8e9}
+    .apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .app-card{background:#ffe9ed;border:2px solid #f1c8d4;border-radius:25px;padding:23px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.3s}
+    .app-card:hover{transform:translateY(-7px) rotate(-.5deg)}
+    .app-card:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:#fff7d6;right:-55px;top:-55px}
+    .app-card h3{text-align:center;font:600 27px Fredoka;color:#c986a5;margin-bottom:5px}
+    .app-card p{text-align:center;font-size:11px;color:#9d8a9b}
+    .tech-list{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0 10px}
+    .tech{width:55px;height:55px;border-radius:15px;display:grid;place-items:center;background:#d8eeeb;color:#729e9a;font:700 16px Fredoka;box-shadow:inset 0 -4px #b9d9d4}
+    .tech:nth-child(2n){background:#f6dce5;color:#bd829a;box-shadow:inset 0 -4px #eac2d0}
+    .tech:nth-child(3n){background:#e4d9f0;color:#907da7;box-shadow:inset 0 -4px #cbb9dc}
+    .soft-label{text-align:center;font-size:10px;color:#aa93a2}
+    .experience{background:#fff0f1}
+    .timeline{max-width:820px;margin:auto;position:relative}
+    .timeline:before{content:"";position:absolute;left:15px;top:8px;bottom:10px;width:3px;background:#e7bfd0;border-radius:3px}
+    .timeline-item{position:relative;padding:0 0 25px 52px}
+    .timeline-item:before{content:"✿";position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:#d9efeb;color:#9a8aa5;display:grid;place-items:center;border:2px solid #fff}
+    .timeline-card{background:#fffaf5;border:1px solid #f0dce1;border-radius:20px;padding:21px 23px;box-shadow:var(--shadow)}
+    .timeline-card h3{font:600 19px Fredoka;color:#c9819e;margin-bottom:5px}.timeline-card .meta{font-size:11px;color:#a99aa6;margin-bottom:10px}.timeline-card p{font-size:13px;line-height:1.75;margin:0}
+    .skills{background:#e1f0ed}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .skill-panel{background:#fffaf4;border:2px solid #f0dfe2;border-radius:25px;padding:25px;box-shadow:var(--shadow)}
+    .skill-panel h3{font:600 23px Fredoka;color:#d58ca7;margin-bottom:18px}
+    .chips{display:flex;flex-wrap:wrap;gap:9px}
+    .chip{background:#e5f2ef;border:1px solid #c9e3dd;border-radius:30px;padding:9px 13px;font-size:11px;font-weight:700;color:#6f9b94}
+    .skill-panel:nth-child(2) .chip{background:#fff0f2;border-color:#f1d5dd;color:#a97c91}
+    .interests{background:#fff8e9;padding-top:45px;padding-bottom:55px}
+    .interest-row{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+    .interest{background:#fff;border:1px solid #f0dfe1;border-radius:18px;padding:15px 20px;min-width:125px;text-align:center;box-shadow:var(--shadow);font:600 13px Fredoka;transition:.25s}
+    .interest:hover{transform:translateY(-6px) rotate(2deg);background:#fff0f2}.interest span{display:block;font-size:23px;margin-bottom:6px}
+    .projects{background:#eee7f6}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project-card{background:#fffaf8;border:2px solid #e2d3e9;border-radius:23px;overflow:hidden;box-shadow:var(--shadow);transition:.3s}
+    .project-card:hover{transform:translateY(-8px)}
+    .project-thumb{height:170px;background:linear-gradient(135deg,#f5dce5,#d8eeeb);display:grid;place-items:center;position:relative;overflow:hidden}
+    .project-thumb:before{content:"";position:absolute;width:150px;height:150px;border:18px solid #fff9d8;border-radius:28px;transform:rotate(35deg);opacity:.65}
+    .project-thumb span{font:700 34px Fredoka;color:#9e8aa6;z-index:1}
+    .project-body{padding:19px}.project-body h3{font:600 18px Fredoka;color:#a184a6;margin-bottom:8px}.project-body p{font-size:12px;line-height:1.7;color:#877d8b;min-height:60px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}.tags span{font-size:9px;background:#f8e8ed;padding:6px 9px;border-radius:20px;color:#a87e93}
+    .project-actions{display:flex;gap:8px}.mini-btn{font-size:10px;font-weight:800;border-radius:20px;padding:8px 12px;background:#dcefeb;color:#719c95}.mini-btn.disabled{background:#f1edf0;color:#aaa0aa;cursor:not-allowed}
+    .certificates{background:#fff0f1}
+    .empty-state{max-width:620px;margin:auto;text-align:center;background:#fffaf4;border:2px dashed #e7c4d0;border-radius:24px;padding:30px;color:#978997}
+    .empty-state .icon{font-size:38px}.empty-state p{font-size:13px;line-height:1.7;margin:10px 0 0}
+    .awards{background:#fff8e9}
+    .award-card{max-width:650px;margin:auto;background:#fff0f2;border:2px solid #f0cbd7;border-radius:25px;padding:27px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow)}
+    .award-icon{width:70px;height:70px;flex:none;border-radius:22px;background:#f5e99e;display:grid;place-items:center;font-size:33px}
+    .award-card h3{font:600 21px Fredoka;color:#c7819d;margin-bottom:6px}.award-card p{font-size:12px;line-height:1.7;margin:0;color:#8b7e8c}
+    .contact{background:#fff0f1;overflow:hidden}
+    .contact:before{content:"";position:absolute;bottom:-110px;left:8%;width:84%;height:220px;border-radius:50% 50% 0 0;background:repeating-linear-gradient(90deg,#d9c8e9 0 45px,#fff7df 45px 90px);opacity:.55}
+    .contact-inner{position:relative;z-index:1;max-width:760px;margin:auto;text-align:center}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px 0}
+    .contact-link{background:#fffaf4;border:1px solid #f0dce1;border-radius:30px;padding:11px 16px;font-size:11px;font-weight:700;color:#9b8298}
+    .contact-form{background:#fffaf5;border:2px solid #f1d9df;border-radius:25px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;box-shadow:var(--shadow)}
+    .contact-form input,.contact-form textarea{width:100%;border:1px solid #ead8df;background:#fff;border-radius:13px;padding:13px;color:var(--ink);font:12px "DM Sans";outline:none}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:#d99ab1;box-shadow:0 0 0 3px #f5dce5}
+    .contact-form textarea{grid-column:1/-1;min-height:110px;resize:vertical}.contact-form button{grid-column:1/-1;justify-self:center}
+    footer{background:#cbe5e0;padding:27px clamp(20px,5vw,55px);display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;font-size:11px;color:#6e918d}
+    footer strong{font:600 16px Fredoka;color:#9b7e9b}footer nav{display:flex;gap:15px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .side-drift{animation:sideDrift 7s ease-in-out infinite}
+    .marquee{overflow:hidden;background:#d9c8e9;color:#fffaf8;padding:10px 0;font:600 13px Fredoka;white-space:nowrap}
+    .marquee-track{display:inline-flex;gap:35px;animation:marquee 25s linear infinite}
+    .marquee:hover .marquee-track{animation-play-state:paused}
+    .to-top{position:fixed;right:20px;bottom:20px;z-index:60;width:42px;height:42px;border:0;border-radius:50%;background:#e89db5;color:white;font-size:18px;box-shadow:var(--shadow);cursor:pointer;opacity:0;pointer-events:none;transition:.3s}
+    .to-top.show{opacity:1;pointer-events:auto}
+    @keyframes float{0%,100%{translate:0 0}50%{translate:0 -13px}}
+    @keyframes twinkle{0%,100%{opacity:.45;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(18deg)}}
+    @keyframes sideDrift{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @media(max-width:800px){
+      .site-shell{margin:0;padding:7px;border-radius:20px}.browser{border-radius:17px}
+      .hero{grid-template-columns:1fr;text-align:center;padding-top:55px}.hero-desc{margin-inline:auto}.hero-actions{justify-content:center}.hero-visual{min-height:330px}
+      .about-grid{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr 1fr}
+      .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:#fff0f1;padding:18px 24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+      .navlinks.open{display:flex}.menu-btn{display:block}
+    }
+    @media(max-width:560px){
+      .project-grid,.apps-grid,.skills-grid{grid-template-columns:1fr}.detail-list{grid-template-columns:1fr}
+      .section{padding:55px 18px}.hero h1{letter-spacing:-1px}.profile-frame{width:260px}
+      .contact-form{grid-template-columns:1fr}.contact-form textarea,.contact-form button{grid-column:1}
+      .award-card{align-items:flex-start;padding:20px}.address{width:45%}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+    /* Falling flower and sparkle animation */
+    .magic-rain-btn{
+      position:fixed;right:20px;bottom:74px;z-index:120;
+      border:2px solid #fff;background:linear-gradient(135deg,#f6c5d5,#d9c8e9 55%,#cce9e3);
+      color:#765f7c;border-radius:999px;padding:13px 18px;
+      font:700 12px Fredoka,sans-serif;box-shadow:0 9px 25px #9b789b55;
+      cursor:pointer;transition:transform .25s,box-shadow .25s;
+    }
+    .magic-rain-btn:hover{transform:translateY(-4px) rotate(-2deg);box-shadow:0 14px 28px #9b789b66}
+    .magic-rain-btn:active{transform:scale(.92)}
+    .magic-particle{
+      position:fixed;top:-55px;left:var(--x);z-index:115;pointer-events:none;
+      font-size:var(--size);opacity:0;line-height:1;
+      filter:drop-shadow(0 3px 4px #b78da344);
+      animation:petalFall var(--duration) ease-in-out forwards;
+      will-change:transform,opacity;
+    }
+    @keyframes petalFall{
+      0%{transform:translate3d(0,-35px,0) rotate(0deg) scale(.7);opacity:0}
+      10%{opacity:.95}
+      35%{transform:translate3d(var(--drift),35vh,0) rotate(145deg) scale(1)}
+      70%{transform:translate3d(calc(var(--drift) * -.45),72vh,0) rotate(290deg) scale(.9);opacity:.9}
+      100%{transform:translate3d(var(--drift),112vh,0) rotate(520deg) scale(.65);opacity:0}
+    }
+    .click-spark{
+      position:fixed;z-index:130;pointer-events:none;font-size:23px;
+      animation:clickPop .8s ease-out forwards;
+      filter:drop-shadow(0 2px 4px #c78ca855)
+    }
+    @keyframes clickPop{
+      0%{opacity:0;transform:translate(-50%,-50%) scale(.25)}
+      25%{opacity:1}
+      100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.35) rotate(35deg)}
+    }
+    @media(max-width:560px){.magic-rain-btn{right:12px;bottom:68px;padding:11px 14px}}
+
+
+
+    /* Whole-page motion: every section, card, chip and image gets a gentle effect */
+    .section{
+      position:relative;
+      isolation:isolate;
+      animation:sectionBreath 8s ease-in-out infinite;
+    }
+    @keyframes sectionBreath{
+      0%,100%{background-position:0 0}
+      50%{background-position:8px 5px}
+    }
+    .reveal{
+      opacity:0;
+      transform:translateY(34px) scale(.985);
+      filter:blur(3px);
+      transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.25,1),filter .8s ease;
+      transition-delay:var(--reveal-delay,0ms);
+    }
+    .reveal.visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+    .about-note,.detail-card,.timeline-card,.app-card,.skill-panel,.interest,
+    .project-card,.empty-state,.award-card,.contact-links a,.contact-form{
+      transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
+      will-change:transform;
+    }
+    .about-note:hover,.detail-card:hover,.timeline-card:hover,.app-card:hover,
+    .skill-panel:hover,.interest:hover,.project-card:hover,.award-card:hover,
+    .contact-links a:hover,.empty-state:hover,.contact-form:hover{
+      transform:translateY(-8px) rotate(-.35deg);
+      box-shadow:0 20px 38px #9d7c9b2b;
+      filter:saturate(1.04);
+    }
+    .project-thumb,.profile-frame,.award-icon,.app-card h3,.skill-panel h3{
+      transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    }
+    .project-card:hover .project-thumb{transform:scale(1.035)}
+    .profile-frame{animation:profileFloat 5s ease-in-out infinite}
+    @keyframes profileFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(1deg)}}
+    .section-title h2{animation:titleSway 6s ease-in-out infinite}
+    @keyframes titleSway{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+    .chip,.tech{transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
+    .chip:hover,.tech:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 7px 14px #dba9bf44}
+    .interest-row>*{animation:softBob 4.5s ease-in-out infinite}
+    .interest-row>*:nth-child(2n){animation-delay:.7s}
+    .interest-row>*:nth-child(3n){animation-delay:1.4s}
+    @keyframes softBob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+    .section::before{
+      content:"✧";position:absolute;right:4%;top:7%;z-index:-1;
+      color:#e6abc3;font-size:clamp(24px,4vw,42px);opacity:.38;
+      animation:twinkle 3s ease-in-out infinite;
+    }
+    .section:nth-of-type(odd)::before{content:"♡";right:auto;left:4%;top:12%}
+    @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8) rotate(0)}50%{opacity:.75;transform:scale(1.18) rotate(18deg)}}
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none;filter:none}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <main class="browser">
+      <!-- Browser-style header and sticky navigation -->
+      <div class="browser-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="address">✿ della-portfolio.my.id</span><span class="bar-right">♡ &nbsp; Welcome, lovely visitor!</span></div>
+      <header class="navbar">
+        <a class="brand" href="#home">della<span>.</span>portfolio</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Buka navigasi">☰</button>
+        <nav class="navlinks" id="navLinks">
+          <a href="#about">OVERVIEW</a><a href="#skills">APPS I USE</a><a href="#projects">PROJECTS</a><a href="#experience">EXPERIENCE</a><a href="#contact">CONTACT</a>
+        </nav>
+      </header>
+
+      <!-- Hero / opening section -->
+      <section class="hero" id="home">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">HELLO, WELCOME TO MY PORTFOLIO!</span>
+          <h1>Della Tri <span>Wahyuningrum</span></h1>
+          <div class="hero-role"><span id="typedRole">Student</span> · Web Developer Enthusiast · Technology Enthusiast</div>
+          <p class="hero-desc">Halo! Saya siswi Rekayasa Perangkat Lunak yang senang mengeksplorasi teknologi, membuat proyek website, dan belajar mengolah data. Selamat datang di ruang kecil tempat saya berbagi perjalanan belajar dan karya.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">✦ Explore My Portfolio</a>
+            <a class="btn btn-soft" href="assets/CV portfolio retro (2).pdf" download>↓ Download CV</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <span class="spark s1">✧</span><span class="spark s2">✦</span>
+          <div class="profile-frame">
+            <!-- Ganti assets/foto-della.jpg dengan foto milikmu -->
+            <div class="photo-placeholder" id="photoPlaceholder">YOUR PHOTO HERE<small>Ganti dengan assets/della.jpg</small></div>
+            <img src="assets/della.jpeg" alt="Foto profil Della" onerror="this.style.display='none'">
+          </div>
+          <div class="sticker one side-drift">♡ nice to meet you!</div>
+          <div class="sticker two">✿ learning & growing</div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-label="Portfolio topics"><div class="marquee-track">
+        <span>✿ WEB DEVELOPMENT</span><span>♡ DATA PROCESSING</span><span>✦ DATABASE MANAGEMENT</span><span>✿ CREATIVE LEARNING</span><span>♡ TECHNOLOGY</span><span>✿ WEB DEVELOPMENT</span><span>♡ DATA PROCESSING</span><span>✦ DATABASE MANAGEMENT</span><span>✿ CREATIVE LEARNING</span><span>♡ TECHNOLOGY</span>
+      </div></div>
+
+      <!-- About section -->
+      <section class="section about" id="about">
+        <div class="section-title reveal"><div class="kicker">A little introduction</div><h2>About <span class="pink">Me</span></h2><p>Get to know the person behind this portfolio ♡</p></div>
+        <div class="about-grid">
+          <article class="about-note reveal"><div class="big-quote">“</div><p>Halo! Saya Della Tri Wahyuningrum, siswi kelas XII jurusan Rekayasa Perangkat Lunak (RPL). Saya tertarik pada dunia teknologi, khususnya pengembangan website dan pengolahan data. Saya senang mempelajari hal baru, mengeksplorasi teknologi, dan mengembangkan kemampuan melalui proyek pembelajaran serta pengalaman PKL. Di luar teknologi, saya juga menyukai desain, makeup, fashion, dan memasak.</p></article>
+          <article class="detail-card reveal"><h3>♡ Personal Details</h3><div class="detail-list">
+            <div class="detail"><small>FULL NAME</small><strong>Della Tri Wahyuningrum</strong></div>
+            <div class="detail"><small>EDUCATION</small><strong>SMK Negeri 2 Kota Mojokerto</strong></div>
+            <div class="detail"><small>CLASS / MAJOR</small><strong>XII RPL 2 · Software Engineering</strong></div>
+            <div class="detail"><small>LOCATION</small><strong>Mojokerto, Jawa Timur</strong></div>
+            <div class="detail"><small>LEARNING FOCUS</small><strong>Web, Data, Database, Technology</strong></div>
+            <div class="detail"><small>PERSONAL INTERESTS</small><strong>Design, Beauty, Fashion, Cooking</strong></div>
+          </div><div style="margin-top:20px"><a class="btn btn-primary" href="assets/CV portfolio retro (2).pdf" download>↓ Download My CV</a></div></article>
+        </div>
+      </section>
+
+      <!-- Education section -->
+      <section class="section" style="background:#fff8e9" id="education">
+        <div class="section-title reveal"><div class="kicker">My learning journey</div><h2>Educa<span class="pink">tion</span></h2></div>
+        <div class="timeline">
+          <div class="timeline-item reveal"><article class="timeline-card"><h3>SMK Negeri 2 Kota Mojokerto</h3><div class="meta">Rekayasa Perangkat Lunak (RPL) · <b>Currently Studying</b></div><p>Fokus pembelajaran: Pemrograman Web, Basis Data, Pengembangan Perangkat Lunak, dan Teknologi Informasi. <br><b>Periode:</b> [Isi tahun masuk – tahun lulus]</p></article></div>
+        </div>
+      </section>
+
+      <!-- Skills / apps cards styled after reference -->
+      <section class="section apps" id="skills">
+        <div class="section-title reveal"><div class="kicker">Tools & abilities</div><h2>Apps <span class="pink">I Use</span></h2><p>Tools and skills I am learning and practicing</p></div>
+        <div class="apps-grid">
+          <article class="app-card reveal"><h3>Web Development</h3><p>Learning through school assignments and projects</p><div class="tech-list"><div class="tech">HTML</div><div class="tech">CSS</div><div class="tech">JS</div><div class="tech">PHP</div><div class="tech">Lrvl</div><div class="tech">SQL</div></div><div class="soft-label">HTML · CSS · JavaScript · PHP · Laravel · MySQL · Bootstrap</div></article>
+          <article class="app-card reveal"><h3>Data Processing</h3><p>Practicing data organization and presentation</p><div class="tech-list"><div class="tech">Excel</div><div class="tech">Colab</div><div class="tech">Data</div></div><div class="soft-label">Microsoft Excel · Google Colab · Data tabulation</div></article>
+        </div>
+        <div class="skills-grid" style="margin-top:22px">
+          <article class="skill-panel reveal"><h3>✿ Hard Skills</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Bootstrap</span><span class="chip">MySQL</span><span class="chip">Microsoft Excel</span><span class="chip">Google Colab</span></div></article>
+          <article class="skill-panel reveal"><h3>♡ Soft Skills</h3><div class="chips"><span class="chip">Communication</span><span class="chip">Teamwork</span><span class="chip">Problem Solving</span><span class="chip">Time Management</span><span class="chip">Adaptability</span><span class="chip">Responsibility</span><span class="chip">Leadership</span><span class="chip">Attention to Detail</span></div></article>
+        </div>
+      </section>
+
+      <!-- Experience section -->
+      <section class="section experience" id="experience">
+        <div class="section-title reveal"><div class="kicker">What I have explored</div><h2>My <span class="pink">Experience</span></h2></div>
+        <div class="timeline">
+          <div class="timeline-item reveal"><article class="timeline-card"><h3>Praktik Kerja Lapangan (PKL)</h3><div class="meta">Dinas Komunikasi dan Informatika Kota Mojokerto · Pengolahan Data Satu Data Indonesia</div><p>Mempelajari proses pengolahan, pengelolaan, dan penyajian data. Kegiatan meliputi penggunaan Microsoft Excel, Google Colab, tabulasi data, serta pengenalan berbagai sistem informasi pemerintahan.</p></article></div>
+          <div class="timeline-item reveal"><article class="timeline-card"><h3>Web Development Experience</h3><div class="meta">Learning & project practice</div><p>Mengembangkan kemampuan membuat aplikasi berbasis website melalui pembelajaran dan proyek menggunakan HTML, CSS, JavaScript, PHP, Laravel, Bootstrap, dan MySQL.</p></article></div>
+          <div class="timeline-item reveal"><article class="timeline-card"><h3>Data Processing Experience</h3><div class="meta">Excel · Google Colab</div><p>Mempelajari proses pengolahan, pengelompokan, tabulasi, dan penyajian data.</p></article></div>
+          <div class="timeline-item reveal"><article class="timeline-card"><h3>Organizational Experience</h3><div class="meta">Kepramukaan</div><p>Mengikuti kegiatan kepramukaan untuk mengembangkan kedisiplinan, kerja sama, tanggung jawab, dan kepemimpinan. Pencapaian: Juara 1 Lomba PBB Tongkat.</p></article></div>
+        </div>
+      </section>
+
+      <!-- Personal interests -->
+      <section class="section interests" id="interests">
+        <div class="section-title reveal"><div class="kicker">Little things I love</div><h2>My <span class="pink">Interests</span></h2></div>
+        <div class="interest-row reveal">
+          <div class="interest"><span>🎨</span>Design</div><div class="interest"><span>💄</span>Makeup & Beauty</div><div class="interest"><span>👗</span>Fashion</div><div class="interest"><span>🍰</span>Cooking</div><div class="interest"><span>💻</span>Technology</div>
+        </div>
+      </section>
+
+      <!-- Projects gallery -->
+      <section class="section projects" id="projects">
+        <div class="section-title reveal"><div class="kicker">Selected learning works</div><h2>My <span class="pink">Projects</span></h2><p>Project cards are ready for your screenshots and real links</p></div>
+        <div class="project-grid">
+          <article class="project-card reveal"><div class="project-thumb"><span>WEB ✿</span></div><div class="project-body"><h3>Website Sistem Informasi</h3><p>Pengembangan website sebagai bagian dari pembelajaran Rekayasa Perangkat Lunak.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>Bootstrap</span><span>MySQL</span></div><div class="project-actions"><a class="mini-btn disabled" href="#" aria-disabled="true" onclick="return false">View Project — add link</a><a class="mini-btn disabled" href="#" aria-disabled="true" onclick="return false">GitHub — add link</a></div></div></article>
+          <article class="project-card reveal"><div class="project-thumb"><span>DATA ♡</span></div><div class="project-body"><h3>Data Processing Project</h3><p>Pengolahan dan tabulasi data selama kegiatan PKL menggunakan tools spreadsheet dan notebook.</p><div class="tags"><span>Excel</span><span>Google Colab</span></div><div class="project-actions"><a class="mini-btn disabled" href="#" aria-disabled="true" onclick="return false">View Project — add link</a><a class="mini-btn disabled" href="#" aria-disabled="true" onclick="return false">GitHub — add link</a></div></div></article>
+        </div>
+      </section>
+
+      <!-- Achievement -->
+      <section class="section awards" id="awards">
+        <div class="section-title reveal"><div class="kicker">Proud moments</div><h2>Awards & <span class="pink">Achievements</span></h2></div>
+        <article class="award-card reveal"><div class="award-icon">🏆</div><div><h3>Juara 1 Lomba PBB Tongkat</h3><p>Pencapaian dalam kegiatan kepramukaan yang mencerminkan kedisiplinan, kerja sama, dan tanggung jawab.</p></div></article>
+      </section>
+
+      <!-- Contact section -->
+      <section class="section contact" id="contact">
+        <div class="contact-inner">
+          <div class="section-title reveal"><div class="kicker">Say hello anytime</div><h2>Contact <span class="pink">Me</span></h2><p>Terima kasih sudah mengunjungi portofolio saya. Saya senang untuk terus belajar, berbagi pengalaman, dan menjalin koneksi baru.</p></div>
+          <div class="contact-links reveal">
+            <!-- Ganti placeholder link berikut dengan akun asli -->
+            <a class="contact-link" href="mailto:triiyaelalaa@gmail.com">✉ Email</a>
+            <a class="contact-link" href="https://www.instagram.com/_nrumella.d?gwpx=NjE3OG9pcXU5MjUw/" target="_blank" rel="noopener">◎ Instagram</a>
+            <a class="contact-link" href="https://github.com/yaelalaadeall" target="_blank" rel="noopener">⌘ GitHub</a>
+          </div>
+          <form class="contact-form reveal" id="contactForm">
+            <input type="text" id="senderName" placeholder="Your name" required>
+            <input type="email" id="senderEmail" placeholder="Your email" required>
+            <textarea id="senderMessage" placeholder="Write your message..." required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message ♡</button>
+          </form>
+          <p style="font-size:10px;color:#a18e9b;margin-top:12px">Form akan membuka aplikasi email. Ganti alamat email placeholder di file index.html.</p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer><strong>Della Tri Wahyuningrum ♡</strong><nav><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav><span>© <span id="year"></span> · Designed & Developed by Della Tri Wahyuningrum</span></footer>
+    </main>
+  </div>
+  <button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+
+  <!-- Tombol efek hujan bintang dan bunga -->
+  <button class="magic-rain-btn" id="magicRainBtn" type="button" aria-label="Aktifkan hujan bintang dan bunga">❀ Matikan Hujan Bunga</button>
+
+
+  <script>
+
+    // Hujan bunga otomatis sejak halaman dibuka; tombol untuk menyalakan/mematikan.
+    const magicButton = document.getElementById('magicRainBtn');
+    const magicSymbols = ['🌸', '🌷', '✿', '❀', '✧', '✦'];
+    let magicRainActive = true;
+    let rainTimer = null;
+    let activePetals = 0;
+
+    function dropPetal() {
+      if (activePetals > 34) return;
+      const particle = document.createElement('span');
+      particle.className = 'magic-particle';
+      particle.textContent = magicSymbols[Math.floor(Math.random() * magicSymbols.length)];
+      particle.style.setProperty('--x', Math.random() * 100 + 'vw');
+      particle.style.setProperty('--size', (16 + Math.random() * 17) + 'px');
+      particle.style.setProperty('--duration', (5 + Math.random() * 4) + 's');
+      particle.style.setProperty('--drift', (Math.random() * 180 - 90) + 'px');
+      document.body.appendChild(particle);
+      activePetals++;
+      particle.addEventListener('animationend', () => {
+        particle.remove();
+        activePetals = Math.max(0, activePetals - 1);
+      }, { once: true });
+    }
+
+    function startFlowerRain() {
+      if (rainTimer) return;
+      magicRainActive = true;
+      magicButton.textContent = '❀ Matikan Hujan Bunga';
+      // Sebarkan beberapa bunga langsung agar efek terlihat saat pertama dibuka.
+      for (let i = 0; i < 12; i++) window.setTimeout(dropPetal, i * 180);
+      rainTimer = window.setInterval(dropPetal, 430);
+    }
+
+    function stopFlowerRain() {
+      magicRainActive = false;
+      window.clearInterval(rainTimer);
+      rainTimer = null;
+      magicButton.textContent = '✿ Aktifkan Hujan Bunga';
+    }
+
+    magicButton.addEventListener('click', () => {
+      if (magicRainActive) stopFlowerRain();
+      else startFlowerRain();
+    });
+
+    // Efek taburan bintang kecil ketika pengguna mengetuk area halaman.
+    // Setiap klik/tap pada halaman memunculkan kilau kecil di titik sentuhan.
+    document.addEventListener('pointerdown', (event) => {
+      if (event.target.closest('button, a, input, textarea')) return;
+      const burstSymbols = ['✦', '✧', '♡', '✿'];
+      for (let i = 0; i < 5; i++) {
+        const spark = document.createElement('span');
+        spark.className = 'click-spark';
+        spark.textContent = burstSymbols[i % burstSymbols.length];
+        spark.style.left = event.clientX + 'px';
+        spark.style.top = event.clientY + 'px';
+        spark.style.setProperty('--dx', (Math.random() * 90 - 45) + 'px');
+        spark.style.setProperty('--dy', (Math.random() * 90 - 45) + 'px');
+        document.body.appendChild(spark);
+        spark.addEventListener('animationend', () => spark.remove(), { once: true });
+      }
+    });
+
+    // Mobile navigation
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Whole-page scroll reveal: animate all sections and their content, not only the hero.
+    const motionTargets = document.querySelectorAll(
+      'main section, main section .section-title, main section article, main section .timeline-item, main section .interest-row, main section .contact-links, main section form, main section .project-thumb'
+    );
+    motionTargets.forEach((el, index) => {
+      if (!el.classList.contains('reveal')) el.classList.add('reveal');
+      // Small stagger so cards enter one after another instead of all at once.
+      const siblingIndex = el.parentElement ? Array.from(el.parentElement.children).indexOf(el) : 0;
+      el.style.setProperty('--reveal-delay', Math.min(siblingIndex * 95, 380) + 'ms');
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -35px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Role text animation
+    const roles = ['Student', 'Web Developer Enthusiast', 'Technology Enthusiast', 'Lifelong Learner'];
+    let roleIndex = 0;
+    const roleElement = document.getElementById('typedRole');
+    setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
+      roleElement.animate([{opacity:1, transform:'translateY(0)'},{opacity:0, transform:'translateY(-7px)'},{opacity:1, transform:'translateY(0)'}],
+        {duration:650, easing:'ease-in-out'});
+      roleElement.textContent = roles[roleIndex];
+    }, 2600);
+
+    // Back-to-top button
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => toTop.classList.toggle('show', window.scrollY > 450), {passive:true});
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Contact form: opens the visitor's email app (no backend required)
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const message = document.getElementById('senderMessage').value.trim();
+      const recipient = 'emailkamu@example.com'; // GANTI dengan email asli Della
+      const subject = encodeURIComponent('Pesan dari portfolio - ' + name);
+      const body = encodeURIComponent('Nama: ' + name + '\nEmail: ' + email + '\n\nPesan:\n' + message);
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    });
+
+    // Automatically update footer year and hide photo placeholder when photo exists
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const profileImage = document.querySelector('.profile-frame img');
+    const placeholder = document.getElementById('photoPlaceholder');
+    profileImage.addEventListener('load', () => placeholder.style.display = 'none');
+    if (profileImage.complete && profileImage.naturalWidth > 0) placeholder.style.display = 'none';
+  </script>
+</body>
+</html>
